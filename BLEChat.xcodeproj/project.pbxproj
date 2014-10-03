@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC28C98D19DF47B700DA61BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C98C19DF47B700DA61BD /* AppDelegate.swift */; };
+		AC28C98F19DF47B700DA61BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C98E19DF47B700DA61BD /* ViewController.swift */; };
+		AC28C99219DF47B700DA61BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC28C99019DF47B700DA61BD /* Main.storyboard */; };
+		AC28C99419DF47B700DA61BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC28C99319DF47B700DA61BD /* Images.xcassets */; };
+		AC28C99719DF47B700DA61BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC28C99519DF47B700DA61BD /* LaunchScreen.xib */; };
+		AC28C9A319DF47B700DA61BD /* BLEChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C9A219DF47B700DA61BD /* BLEChatTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC28C99D19DF47B700DA61BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC28C97F19DF47B700DA61BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC28C98619DF47B700DA61BD;
+			remoteInfo = BLEChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC28C98719DF47B700DA61BD /* BLEChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC28C98B19DF47B700DA61BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC28C98C19DF47B700DA61BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC28C98E19DF47B700DA61BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC28C99119DF47B700DA61BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC28C99319DF47B700DA61BD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AC28C99619DF47B700DA61BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		AC28C99C19DF47B700DA61BD /* BLEChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC28C9A119DF47B700DA61BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC28C9A219DF47B700DA61BD /* BLEChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEChatTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC28C98419DF47B700DA61BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC28C99919DF47B700DA61BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC28C97E19DF47B700DA61BD = {
+			isa = PBXGroup;
+			children = (
+				AC28C98919DF47B700DA61BD /* BLEChat */,
+				AC28C99F19DF47B700DA61BD /* BLEChatTests */,
+				AC28C98819DF47B700DA61BD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC28C98819DF47B700DA61BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC28C98719DF47B700DA61BD /* BLEChat.app */,
+				AC28C99C19DF47B700DA61BD /* BLEChatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC28C98919DF47B700DA61BD /* BLEChat */ = {
+			isa = PBXGroup;
+			children = (
+				AC28C98C19DF47B700DA61BD /* AppDelegate.swift */,
+				AC28C98E19DF47B700DA61BD /* ViewController.swift */,
+				AC28C99019DF47B700DA61BD /* Main.storyboard */,
+				AC28C99319DF47B700DA61BD /* Images.xcassets */,
+				AC28C99519DF47B700DA61BD /* LaunchScreen.xib */,
+				AC28C98A19DF47B700DA61BD /* Supporting Files */,
+			);
+			path = BLEChat;
+			sourceTree = "<group>";
+		};
+		AC28C98A19DF47B700DA61BD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC28C98B19DF47B700DA61BD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC28C99F19DF47B700DA61BD /* BLEChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC28C9A219DF47B700DA61BD /* BLEChatTests.swift */,
+				AC28C9A019DF47B700DA61BD /* Supporting Files */,
+			);
+			path = BLEChatTests;
+			sourceTree = "<group>";
+		};
+		AC28C9A019DF47B700DA61BD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC28C9A119DF47B700DA61BD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC28C98619DF47B700DA61BD /* BLEChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC28C9A619DF47B700DA61BD /* Build configuration list for PBXNativeTarget "BLEChat" */;
+			buildPhases = (
+				AC28C98319DF47B700DA61BD /* Sources */,
+				AC28C98419DF47B700DA61BD /* Frameworks */,
+				AC28C98519DF47B700DA61BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLEChat;
+			productName = BLEChat;
+			productReference = AC28C98719DF47B700DA61BD /* BLEChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC28C99B19DF47B700DA61BD /* BLEChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC28C9A919DF47B700DA61BD /* Build configuration list for PBXNativeTarget "BLEChatTests" */;
+			buildPhases = (
+				AC28C99819DF47B700DA61BD /* Sources */,
+				AC28C99919DF47B700DA61BD /* Frameworks */,
+				AC28C99A19DF47B700DA61BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC28C99E19DF47B700DA61BD /* PBXTargetDependency */,
+			);
+			name = BLEChatTests;
+			productName = BLEChatTests;
+			productReference = AC28C99C19DF47B700DA61BD /* BLEChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC28C97F19DF47B700DA61BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = AnkushAgrawal;
+				TargetAttributes = {
+					AC28C98619DF47B700DA61BD = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					AC28C99B19DF47B700DA61BD = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = AC28C98619DF47B700DA61BD;
+					};
+				};
+			};
+			buildConfigurationList = AC28C98219DF47B700DA61BD /* Build configuration list for PBXProject "BLEChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC28C97E19DF47B700DA61BD;
+			productRefGroup = AC28C98819DF47B700DA61BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC28C98619DF47B700DA61BD /* BLEChat */,
+				AC28C99B19DF47B700DA61BD /* BLEChatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC28C98519DF47B700DA61BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC28C99219DF47B700DA61BD /* Main.storyboard in Resources */,
+				AC28C99719DF47B700DA61BD /* LaunchScreen.xib in Resources */,
+				AC28C99419DF47B700DA61BD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC28C99A19DF47B700DA61BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC28C98319DF47B700DA61BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC28C98F19DF47B700DA61BD /* ViewController.swift in Sources */,
+				AC28C98D19DF47B700DA61BD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC28C99819DF47B700DA61BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC28C9A319DF47B700DA61BD /* BLEChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC28C99E19DF47B700DA61BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC28C98619DF47B700DA61BD /* BLEChat */;
+			targetProxy = AC28C99D19DF47B700DA61BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC28C99019DF47B700DA61BD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC28C99119DF47B700DA61BD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC28C99519DF47B700DA61BD /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC28C99619DF47B700DA61BD /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC28C9A419DF47B700DA61BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC28C9A519DF47B700DA61BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC28C9A719DF47B700DA61BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BLEChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AC28C9A819DF47B700DA61BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BLEChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AC28C9AA19DF47B700DA61BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BLEChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLEChat.app/BLEChat";
+			};
+			name = Debug;
+		};
+		AC28C9AB19DF47B700DA61BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BLEChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLEChat.app/BLEChat";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC28C98219DF47B700DA61BD /* Build configuration list for PBXProject "BLEChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC28C9A419DF47B700DA61BD /* Debug */,
+				AC28C9A519DF47B700DA61BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC28C9A619DF47B700DA61BD /* Build configuration list for PBXNativeTarget "BLEChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC28C9A719DF47B700DA61BD /* Debug */,
+				AC28C9A819DF47B700DA61BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AC28C9A919DF47B700DA61BD /* Build configuration list for PBXNativeTarget "BLEChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC28C9AA19DF47B700DA61BD /* Debug */,
+				AC28C9AB19DF47B700DA61BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC28C97F19DF47B700DA61BD /* Project object */;
+}
