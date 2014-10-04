@@ -10,10 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var username: NSString?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        print(username)
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,13 +24,14 @@ class ViewController: UIViewController {
 
 
     @IBAction func tap(sender: AnyObject) {
-        println("before push")
-        self.navigationController?.pushViewController(ConnectionsViewController(), animated: true)
-        println("after push")
+        //println("before push")
+        //self.navigationController?.pushViewController(ConnectionsViewController(), animated: true)
+        //println("after push")
     }
     
     @IBAction func sendMessage(sender: AnyObject) {
         //self.navigationController?.pushViewController(FirstViewController(), animated: true)
     }
+    
 }
 
