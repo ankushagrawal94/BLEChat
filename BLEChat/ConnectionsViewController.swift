@@ -9,11 +9,16 @@
 import UIKit
 import MultipeerConnectivity
 
+protocol ConnectionsViewControllerDelegate {
+    func callSendEnter()
+}
+
 class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelegate, UITextFieldDelegate {
     
     var appDelegate: AppDelegate?
     var arrConnectedDevices: NSMutableArray?
-    
+    var delegate: ConnectionsViewControllerDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
@@ -51,6 +56,9 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
         if state != MCSessionState.Connecting.rawValue {
             if state == MCSessionState.Connected.rawValue {
                 arrConnectedDevices?.addObject(displayName)
+                
+                //Call delegate method
+                self.delegate?.callSendEnter()
             }
             else if state == MCSessionState.NotConnected.rawValue && arrConnectedDevices?.count > 0{
                 var indexOfPeer = arrConnectedDevices?.indexOfObject(displayName)

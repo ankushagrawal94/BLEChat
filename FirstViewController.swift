@@ -9,7 +9,7 @@
 import UIKit
 import MultipeerConnectivity
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
 
     var appDelegate: AppDelegate?
     var username: NSString?
@@ -45,6 +45,11 @@ class FirstViewController: UIViewController {
             print(error?.localizedDescription)
         }
         print(allPeers)
+    }
+    
+    func callSendEnter() {
+        println("delegate method sendEnter called")
+        sendEnter()
     }
     
     func sendEnter() {
