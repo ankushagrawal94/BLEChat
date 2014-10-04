@@ -27,5 +27,9 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(ConnectionsViewController(), animated: true)
         println("after push")
     }
+    
+    @IBAction func sendMessage(sender: AnyObject) {
+        self.navigationController?.pushViewController(FirstViewController(), animated: true)
+    }
 }
 

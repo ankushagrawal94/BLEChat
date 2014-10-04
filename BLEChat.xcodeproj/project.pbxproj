@@ -15,6 +15,7 @@
 		AC28C9A319DF47B700DA61BD /* BLEChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C9A219DF47B700DA61BD /* BLEChatTests.swift */; };
 		AC28C9AD19DF50DF00DA61BD /* MCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C9AC19DF50DF00DA61BD /* MCManager.swift */; };
 		AC28C9AF19DF580900DA61BD /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C9AE19DF580900DA61BD /* ConnectionsViewController.swift */; };
+		AC28C9B419E0255600DA61BD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C9B219E0255600DA61BD /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		AC28C9A219DF47B700DA61BD /* BLEChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEChatTests.swift; sourceTree = "<group>"; };
 		AC28C9AC19DF50DF00DA61BD /* MCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCManager.swift; sourceTree = "<group>"; };
 		AC28C9AE19DF580900DA61BD /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
+		AC28C9B219E0255600DA61BD /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = ../FirstViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				AC28C99019DF47B700DA61BD /* Main.storyboard */,
 				AC28C99319DF47B700DA61BD /* Images.xcassets */,
 				AC28C99519DF47B700DA61BD /* LaunchScreen.xib */,
+				AC28C9B219E0255600DA61BD /* FirstViewController.swift */,
 				AC28C98A19DF47B700DA61BD /* Supporting Files */,
 			);
 			path = BLEChat;
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC28C9B419E0255600DA61BD /* FirstViewController.swift in Sources */,
 				AC28C9AF19DF580900DA61BD /* ConnectionsViewController.swift in Sources */,
 				AC28C98F19DF47B700DA61BD /* ViewController.swift in Sources */,
 				AC28C98D19DF47B700DA61BD /* AppDelegate.swift in Sources */,

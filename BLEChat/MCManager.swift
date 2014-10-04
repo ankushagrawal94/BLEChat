@@ -22,7 +22,8 @@ class MCManager: NSObject, MCSessionDelegate {
     }
     
     func session(session: MCSession!, didReceiveData data: NSData!, fromPeer peerID: MCPeerID!) {
-        
+        var dict = ["data": data, "peerID": peerID]
+        NSNotificationCenter.defaultCenter().postNotificationName("MSDidReceiveDataNotification", object: nil, userInfo: dict)
     }
     
     func session(session: MCSession!, didStartReceivingResourceWithName resourceName: String!, fromPeer peerID: MCPeerID!, withProgress progress: NSProgress!) {

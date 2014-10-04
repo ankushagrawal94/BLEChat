@@ -59,6 +59,10 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
             
             print(arrConnectedDevices!)
             var peersExist = appDelegate?.mcManager?.session.connectedPeers.count == 0
+            
+            print("Pushing firstVC")
+            self.dismissViewControllerAnimated(true, completion: nil)
+            self.navigationController?.popViewControllerAnimated(true)
         }
     }
     

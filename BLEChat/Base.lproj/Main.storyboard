@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bvl-5Y-s47">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
     <scenes>
@@ -41,6 +42,16 @@
                                     <action selector="tap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sgL-xG-ew4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U84-Ec-S7e">
+                                <rect key="frame" x="146" y="354" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendMessage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7zb-9G-4CN"/>
+                                    <segue destination="Mft-Mr-HUx" kind="push" id="l9V-m9-3U7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -49,6 +60,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="345" y="129"/>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="PJt-tz-vWi">
+            <objects>
+                <viewController id="Mft-Mr-HUx" customClass="FirstViewController" customModule="BLEChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JPu-cs-3mw"/>
+                        <viewControllerLayoutGuide type="bottom" id="V1T-kl-85v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8pU-Hi-WEN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QBh-4o-ZTf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CDU-Yq-fJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="149"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
