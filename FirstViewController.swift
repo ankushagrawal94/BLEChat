@@ -51,8 +51,15 @@ class FirstViewController: UIViewController {
         var receivedDict: NSDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(receivedData) as NSDictionary
         var temp = textLabel.text! + peerDisplayName + " wrote: " + (receivedDict["message"] as NSString)
         print(peerDisplayName + " wrote: " + (receivedDict["message"] as NSString) + "\n")
-        textLabel.text = temp
-        sendMyMessage()
+        
+        //Determine if we want to trasmit this to other phones
+        if ((receivedDict["from"] as String) != "R"){
+            sendMyMessage()
+        }else {
+            textLabel.text = temp
+        }
+        
+        
     }
 
     @IBAction func tap(sender: AnyObject) {
