@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sendMessage(sender: AnyObject) {
-        self.navigationController?.pushViewController(FirstViewController(), animated: true)
+        //self.navigationController?.pushViewController(FirstViewController(), animated: true)
     }
 }
 

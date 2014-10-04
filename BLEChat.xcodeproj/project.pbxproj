@@ -426,6 +426,7 @@
 				AC28C9A819DF47B700DA61BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC28C9A919DF47B700DA61BD /* Build configuration list for PBXNativeTarget "BLEChatTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +435,7 @@
 				AC28C9AB19DF47B700DA61BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
