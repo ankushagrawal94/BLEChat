@@ -9,28 +9,61 @@
 import UIKit
 import MultipeerConnectivity
 
-class ConnectionsViewController: UIViewController {
+class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelegate, UITextFieldDelegate {
+    
+    var appDelegate: AppDelegate?
+    var arrConnectedDevices: NSMutableArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        appDelegate?.mcManager?.setup(UIDevice.currentDevice().name)
+        appDelegate?.mcManager?.advertiseSelf(true)
+        browserForDevices()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "peerDidChangeStateWithNotification:", name: "MSDidChangeStateNotification", object: nil)
+        arrConnectedDevices = NSMutableArray()
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func browserForDevices() {
+        appDelegate?.mcManager?.setupMCBrowser()
+        appDelegate?.mcManager?.browser?.delegate = self
+        var tempBrowser = appDelegate?.mcManager?.browser
+        //self.navigationController?.pushViewController(appDelegate?.mcManager?.browser?, animated: true)
+        println("before presenting")
+        self.presentViewController(tempBrowser!, animated: true, completion: nil)
+        println("after presenting")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func browserViewControllerDidFinish(browserViewController: MCBrowserViewController!) {
+        appDelegate?.mcManager?.browser?.dismissViewControllerAnimated(true, completion: nil)
     }
-    */
-
+    
+    func browserViewControllerWasCancelled(browserViewController: MCBrowserViewController!) {
+        appDelegate?.mcManager?.browser?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func peerDidChangeStateWithNotification (notification: NSNotification) {
+        var peerID = notification.userInfo?["peerID"] as MCPeerID
+        var displayName = peerID.displayName
+        var state = notification.userInfo?["state"] as Int
+        
+        if state != MCSessionState.Connecting.rawValue {
+            if state == MCSessionState.Connected.rawValue {
+                arrConnectedDevices?.addObject(displayName)
+            }
+            else if state == MCSessionState.NotConnected.rawValue && arrConnectedDevices?.count > 0{
+                var indexOfPeer = arrConnectedDevices?.indexOfObject(displayName)
+                arrConnectedDevices?.removeObjectAtIndex(indexOfPeer!)
+            }
+            
+            print(arrConnectedDevices!)
+            var peersExist = appDelegate?.mcManager?.session.connectedPeers.count == 0
+        }
+    }
+    
+    func disconnect() {
+        appDelegate?.mcManager?.session.disconnect()
+        arrConnectedDevices?.removeAllObjects()
+    }
 }

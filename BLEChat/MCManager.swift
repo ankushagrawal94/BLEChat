@@ -10,13 +10,15 @@ import UIKit
 import MultipeerConnectivity
 
 class MCManager: NSObject, MCSessionDelegate {
-    var peerID: MCPeerID = MCPeerID()
+    var peerID: MCPeerID?
     var session: MCSession = MCSession()
-    var browser: MCBrowserViewController = MCBrowserViewController()
+    var browser: MCBrowserViewController?
     var advertiser: MCAdvertiserAssistant = MCAdvertiserAssistant()
     
     func session(session: MCSession!, peer peerID: MCPeerID!, didChangeState state: MCSessionState) {
+        var dict: NSDictionary = ["peerID": peerID, "state": state.rawValue] //POTENTIAL SOURCE OF ERROR
         
+        NSNotificationCenter.defaultCenter().postNotificationName("MSDidChangeStateNotification", object: nil, userInfo: dict)
     }
     
     func session(session: MCSession!, didReceiveData data: NSData!, fromPeer peerID: MCPeerID!) {

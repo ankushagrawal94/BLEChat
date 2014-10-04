@@ -12,11 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var mcManager: MCManager?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        //var mcManager = MCManager()   //POTENTIAL SOURCE OF ERROR
+        mcManager = MCManager()   //POTENTIAL SOURCE OF ERROR
         return true
     }
 
