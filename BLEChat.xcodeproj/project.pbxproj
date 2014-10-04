@@ -16,7 +16,10 @@
 		AC28C9AD19DF50DF00DA61BD /* MCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C9AC19DF50DF00DA61BD /* MCManager.swift */; };
 		AC28C9AF19DF580900DA61BD /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C9AE19DF580900DA61BD /* ConnectionsViewController.swift */; };
 		AC28C9B419E0255600DA61BD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C9B219E0255600DA61BD /* FirstViewController.swift */; };
-		AC54E07E19E08ABC006CCFAD /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54E07D19E08ABC006CCFAD /* InputUsernameViewController.swift */; };
+		BACE692B96555E3DA0775401 /* libPods-BLEChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5315352E174C862096D2FF /* libPods-BLEChat.a */; };
+		EB5EFA5B19E03ECA00514BE4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5EFA5A19E03ECA00514BE4 /* AudioToolbox.framework */; };
+		EB5EFA5D19E03EED00514BE4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5EFA5C19E03EED00514BE4 /* QuartzCore.framework */; };
+		EB5EFA6219E0814200514BE4 /* BLEMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5EFA6119E0814200514BE4 /* BLEMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		303287D395D48ACBB731A1D8 /* Pods-BLEChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLEChat/Pods-BLEChat.debug.xcconfig"; sourceTree = "<group>"; };
+		68ED8D45FBEDEDCAA9F5D480 /* Pods-BLEChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLEChat/Pods-BLEChat.release.xcconfig"; sourceTree = "<group>"; };
 		AC28C98719DF47B700DA61BD /* BLEChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC28C98B19DF47B700DA61BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC28C98C19DF47B700DA61BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +48,11 @@
 		AC28C9AC19DF50DF00DA61BD /* MCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCManager.swift; sourceTree = "<group>"; };
 		AC28C9AE19DF580900DA61BD /* ConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsViewController.swift; sourceTree = "<group>"; };
 		AC28C9B219E0255600DA61BD /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = ../FirstViewController.swift; sourceTree = "<group>"; };
-		AC54E07D19E08ABC006CCFAD /* InputUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
+		BD5315352E174C862096D2FF /* libPods-BLEChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLEChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5EFA5A19E03ECA00514BE4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EB5EFA5C19E03EED00514BE4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EB5EFA5E19E05F3300514BE4 /* BLEChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BLEChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		EB5EFA6119E0814200514BE4 /* BLEMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5EFA5D19E03EED00514BE4 /* QuartzCore.framework in Frameworks */,
+				EB5EFA5B19E03ECA00514BE4 /* AudioToolbox.framework in Frameworks */,
+				BACE692B96555E3DA0775401 /* libPods-BLEChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,12 +76,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65A327D20F18A9CB8B20804D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD5315352E174C862096D2FF /* libPods-BLEChat.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC28C97E19DF47B700DA61BD = {
 			isa = PBXGroup;
 			children = (
+				EB5EFA5C19E03EED00514BE4 /* QuartzCore.framework */,
+				EB5EFA5A19E03ECA00514BE4 /* AudioToolbox.framework */,
 				AC28C98919DF47B700DA61BD /* BLEChat */,
 				AC28C99F19DF47B700DA61BD /* BLEChatTests */,
 				AC28C98819DF47B700DA61BD /* Products */,
+				E4FE2B5C8FAB46E8A2027F57 /* Pods */,
+				65A327D20F18A9CB8B20804D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,11 +114,12 @@
 				AC28C98E19DF47B700DA61BD /* ViewController.swift */,
 				AC28C9AC19DF50DF00DA61BD /* MCManager.swift */,
 				AC28C99019DF47B700DA61BD /* Main.storyboard */,
-				AC54E07D19E08ABC006CCFAD /* InputUsernameViewController.swift */,
 				AC28C99319DF47B700DA61BD /* Images.xcassets */,
 				AC28C99519DF47B700DA61BD /* LaunchScreen.xib */,
 				AC28C9B219E0255600DA61BD /* FirstViewController.swift */,
 				AC28C98A19DF47B700DA61BD /* Supporting Files */,
+				EB5EFA5E19E05F3300514BE4 /* BLEChat-Bridging-Header.h */,
+				EB5EFA6119E0814200514BE4 /* BLEMessage.swift */,
 			);
 			path = BLEChat;
 			sourceTree = "<group>";
@@ -124,6 +149,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E4FE2B5C8FAB46E8A2027F57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				303287D395D48ACBB731A1D8 /* Pods-BLEChat.debug.xcconfig */,
+				68ED8D45FBEDEDCAA9F5D480 /* Pods-BLEChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC28C9A619DF47B700DA61BD /* Build configuration list for PBXNativeTarget "BLEChat" */;
 			buildPhases = (
+				CAAEAE2343D549EA18D557EE /* Check Pods Manifest.lock */,
 				AC28C98319DF47B700DA61BD /* Sources */,
 				AC28C98419DF47B700DA61BD /* Frameworks */,
 				AC28C98519DF47B700DA61BD /* Resources */,
+				C82F6FC265020F7BFA11052B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -220,6 +256,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C82F6FC265020F7BFA11052B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLEChat/Pods-BLEChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAAEAE2343D549EA18D557EE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC28C98319DF47B700DA61BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -228,9 +297,9 @@
 				AC28C9B419E0255600DA61BD /* FirstViewController.swift in Sources */,
 				AC28C9AF19DF580900DA61BD /* ConnectionsViewController.swift in Sources */,
 				AC28C98F19DF47B700DA61BD /* ViewController.swift in Sources */,
+				EB5EFA6219E0814200514BE4 /* BLEMessage.swift in Sources */,
 				AC28C98D19DF47B700DA61BD /* AppDelegate.swift in Sources */,
 				AC28C9AD19DF50DF00DA61BD /* MCManager.swift in Sources */,
-				AC54E07E19E08ABC006CCFAD /* InputUsernameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,8 +420,10 @@
 		};
 		AC28C9A719DF47B700DA61BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 303287D395D48ACBB731A1D8 /* Pods-BLEChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BLEChat/Info.plist;
@@ -360,13 +431,17 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BLEChat/BLEChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AC28C9A819DF47B700DA61BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68ED8D45FBEDEDCAA9F5D480 /* Pods-BLEChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BLEChat/Info.plist;
@@ -374,6 +449,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BLEChat/BLEChat-Bridging-Header.h";
 			};
 			name = Release;
 		};
