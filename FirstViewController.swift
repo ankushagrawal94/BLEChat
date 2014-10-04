@@ -26,17 +26,19 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
         self.view.addSubview(button)
         appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MSDidReceiveDataWithNotification", object: nil)
+        
         // Do any additional setup after loading the view.
     }
     
     func sendMyMessage() {
         var to: NSString = "A" //A, C, L, R
-        var from: NSString = "R"
+        println(username!)
+        var from: NSString = username!
         var init_timestamp: NSString = getCurrDate()
         var num_bounces: NSInteger = 0
-        var message: NSString = "This is the message"
+        var message: NSString = "This is the brand new message!!!"
         var path: NSArray = ["R"]
-        var textMessage = NSDictionary(objects: [to, from, init_timestamp, num_bounces, message, path], forKeys: ["to", "from", "init_timestamp", "num_bounces", "message", "path"], count: 5)
+        var textMessage = NSDictionary(objects: ["message", to, from, init_timestamp, num_bounces, message, path], forKeys: ["type", "to", "from", "init_timestamp", "num_bounces", "message", "path"], count: 7)
         var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(textMessage)
         var allPeers = appDelegate?.mcManager?.session.connectedPeers
         var error: NSError?
@@ -53,8 +55,9 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
     }
     
     func sendEnter() {
+        println("send enter called")
         var username = self.username
-        print (username)
+        println (username)
         var dict = NSDictionary(objects: ["enter", username], forKeys: ["type", "username"], count: 2)
         var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(dict)
         var allPeers = appDelegate?.mcManager?.session.connectedPeers
@@ -63,7 +66,7 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
         if((error) != nil){
             print(error?.localizedDescription)
         }
-        print(allPeers)
+        println(allPeers)
     }
 
     
@@ -78,10 +81,12 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
             print(peerDisplayName + " wrote: " + (receivedDict["message"] as NSString) + "\n")
             
             //Determine if we want to trasmit this to other phones
-            if ((receivedDict["from"] as String) != "R"){
+            if ((receivedDict["from"] as String) != username){
                 sendMyMessage()
+                println("first case")
             }else {
                 textLabel.text = temp
+                println("second case")
             }
         }
         else if (type == "enter"){
@@ -92,14 +97,11 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
                 print(usersArr)
             }
         }
-        
-        
-        
     }
 
     @IBAction func tap(sender: AnyObject) {
-        //sendMyMessage()
-        sendEnter()
+        sendMyMessage()
+        //sendEnter()
     }
     
     func getCurrDate() -> String {

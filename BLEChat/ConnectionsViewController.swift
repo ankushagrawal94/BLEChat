@@ -55,12 +55,13 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
         
         if state != MCSessionState.Connecting.rawValue {
             if state == MCSessionState.Connected.rawValue {
+                println("case1")
                 arrConnectedDevices?.addObject(displayName)
-                
                 //Call delegate method
                 self.delegate?.callSendEnter()
             }
             else if state == MCSessionState.NotConnected.rawValue && arrConnectedDevices?.count > 0{
+                println("case2")
                 var indexOfPeer = arrConnectedDevices?.indexOfObject(displayName)
                 arrConnectedDevices?.removeObjectAtIndex(indexOfPeer!)
             }
@@ -68,7 +69,6 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
             print(arrConnectedDevices!)
             var peersExist = appDelegate?.mcManager?.session.connectedPeers.count == 0
             
-            print("Pushing firstVC")
             self.dismissViewControllerAnimated(true, completion: nil)
             self.navigationController?.popViewControllerAnimated(true)
         }
