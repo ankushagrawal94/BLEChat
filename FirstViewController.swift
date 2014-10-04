@@ -31,37 +31,28 @@ class FirstViewController: UIViewController {
         var from: NSString = "R"
         var init_timestamp: NSString = getCurrDate()
         var num_bounces: NSInteger = 0
-        var message: NSString? = "This is the message"
+        var message: NSString = "This is the message"
         var path: NSArray = ["R"]
-        
         var textMessage = NSDictionary(objects: [to, from, init_timestamp, num_bounces, message, path], forKeys: ["to", "from", "init_timestamp", "num_bounces", "message", "path"], count: 5)
-        //var textMessage = ["to": "value", "from":"value2" ,"init_timestamp": "value3" , "num_bounces": "value2" , "message": "value2"]
         var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(textMessage)
         var allPeers = appDelegate?.mcManager?.session.connectedPeers
         var error: NSError?
-        
         appDelegate?.mcManager?.session.sendData(dataToSend, toPeers: allPeers, withMode: MCSessionSendDataMode.Reliable, error: &error)
         if((error) != nil){
             print(error?.localizedDescription)
         }
         print(allPeers)
-        //print("I wrote: " + textMessage)
     }
     
     func didReceiveDataWithNotification(notification: NSNotification) {
         var peerID: MCPeerID = notification.userInfo?["peerID"]! as MCPeerID
         var peerDisplayName = peerID.displayName
-        
         var receivedData = notification.userInfo?["data"] as NSData
-        //var receivedText = NSString(data: receivedData, encoding: NSUTF8StringEncoding)
         var receivedDict: NSDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(receivedData) as NSDictionary
-        //POTENTIAL SOURCE OF ERROR
-        //print(peerDisplayName + " wrote: " + receivedText!)
-        print(peerDisplayName + " wrote: " + (receivedDict["key"] as NSString) + (receivedDict["key2"] as NSString))
-        //var temp = textLabel.text! + "\n" + peerDisplayName + " wrote: " + receivedText!
-        var temp = peerDisplayName + " wrote: " + (receivedDict["key"] as NSString) + (receivedDict["key2"] as NSString)
-
+        var temp = textLabel.text! + peerDisplayName + " wrote: " + (receivedDict["message"] as NSString)
+        print(peerDisplayName + " wrote: " + (receivedDict["message"] as NSString) + "\n")
         textLabel.text = temp
+        sendMyMessage()
     }
 
     @IBAction func tap(sender: AnyObject) {
