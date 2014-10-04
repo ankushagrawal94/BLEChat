@@ -24,14 +24,22 @@ class ViewController: UIViewController {
 
 
     @IBAction func tap(sender: AnyObject) {
-        //println("before push")
-        //self.navigationController?.pushViewController(ConnectionsViewController(), animated: true)
-        //println("after push")
+        println("before push")
+        self.navigationController?.pushViewController(ConnectionsViewController(), animated: true)
+        println("after push")
     }
     
     @IBAction func sendMessage(sender: AnyObject) {
         //self.navigationController?.pushViewController(FirstViewController(), animated: true)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        let firstVC:FirstViewController = segue.destinationViewController as FirstViewController
+        
+        firstVC.username = username
+        //segue.destinationViewController.username = username
+    }
 }
 
