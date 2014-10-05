@@ -32,7 +32,6 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.setNavigationBar
         Hidden(true, animated: true)
 
-        
         //segue.destinationViewController.username = username
     }
 

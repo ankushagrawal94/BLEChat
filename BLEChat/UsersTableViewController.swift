@@ -35,6 +35,8 @@ class UsersTableViewController: UITableViewController, MCBrowserViewControllerDe
         self.mailButton.addTarget(self, action: "connect", forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationController?.navigationBar.addSubview(self.mailButton)
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MSDidReceiveDataWithNotification", object: nil)
+
         // Uncomment the following line to preserve selection between presentations
         
         // self.clearsSelectionOnViewWillAppear = false
@@ -385,5 +387,133 @@ class UsersTableViewController: UITableViewController, MCBrowserViewControllerDe
         
     }
     
+    func didReceiveDataWithNotification(notification: NSNotification) {
+        var peerID: MCPeerID = notification.userInfo?["peerID"]! as MCPeerID
+        var peerDisplayName = peerID.displayName as String
+        var receivedData = notification.userInfo?["data"] as NSData
+        
+        var receivedMessage: BLEMessage = NSKeyedUnarchiver.unarchiveObjectWithData(receivedData) as BLEMessage
+        //println("username: " + sender + "\n" + receivedMessage)
+        var type = receivedMessage.type()
+        
+        if (type == "message") {
+            //var temp = textLabel.text! + peerDisplayName + " wrote: " + receivedMessage.text()
+            print(peerDisplayName + " wrote: " + receivedMessage.text() + "\n")
+            
+            //Determine if we want to trasmit this to other phones
+            //Check if we are the intended target
+            if( UIDevice.currentDevice().name == receivedMessage.recipient_ ) {
+                //Then add this to the Textview
+                //messages.append(receivedMessage)
+            }
+            else {
+                //Check if the path already contains 'us'
+                /*if !contains(receivedMessage.path_, UIDevice.currentDevice().name as String)
+                */
+                var elapsed = self.subtractDates(NSDate(), end: receivedMessage.date()!)
+                if( elapsed > 1000){
+                    println("discard message")
+                }
+                else {
+                    recurringMessage(receivedMessage)
+                    //finishSendingMessage()
+                }
+                /*}*/
+            }
+        }
+        /*
+        else if (type == "enter") {
+        //print(receivedDict["username"] as NSString)
+        //print(usersArr)
+        
+        if !contains(usersArr, receivedMessage.sender()) {
+        
+        usersArr.append(receivedMessage.sender())
+        //print(usersArr)
+        
+        //Send back to OP (person entering)
+        var type = "acq_lib"
+        var target = receivedMessage.sender()
+        
+        var message = BLEMessage(type: type, sender: username, recipient: target)
+        var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(message)
+        var allPeers = appDelegate.mcManager?.session.connectedPeers
+        var error: NSError?
+        appDelegate.mcManager?.session.sendData(dataToSend, toPeers: allPeers, withMode: MCSessionSendDataMode.Reliable, error: &error)
+        if (error != nil) {
+        print(error?.localizedDescription)
+        }
+        
+        //Send out to network
+        var type2 = "enter"
+        var path2 = receivedMessage.path() as NSArray
+        var path3 = NSMutableArray(array: path2)
+        path3.addObject(username)
+        
+        var message2 = BLEMessage(type: type, sender: username, path: path3)
+        
+        var dataToSend2: NSData = NSKeyedArchiver.archivedDataWithRootObject(message2)
+        var doReBroadcast = false
+        for seenUser in path2{
+        let count: Int? = appDelegate.mcManager?.session.connectedPeers.count as Int?
+        for x in 0...count! {
+        if ((appDelegate.mcManager?.session.connectedPeers[x] as MCPeerID) == seenUser as MCPeerID) {
+        //the person has not already received the object
+        continue
+        }
+        else {
+        //we have to rebroadcast
+        doReBroadcast = true
+        }
+        }
+        }
+        if doReBroadcast {
+        var allPeers2 = appDelegate.mcManager?.session.connectedPeers
+        var error2: NSError?
+        appDelegate.mcManager?.session.sendData(dataToSend2, toPeers: allPeers2, withMode: MCSessionSendDataMode.Reliable, error: &error2)
+        
+        if((error2) != nil){
+        print(error?.localizedDescription)
+        }
+        }
+        }
+        }
+        else if (type == "acq_lib") {
+        if (username == receivedMessage.recipient()) {
+        //You..
+        //You...
+        //...
+        //You ARE the OP
+        //DUN DUN DUN
+        
+        // We should be doing something like
+        // this here: v but it wasn't working
+        usersArr = receivedMessage.path() as [String]
+        println(usersArr)
+        }
+        }*/
+    }
+    
+    func subtractDates(start: NSDate, end: NSDate) -> NSTimeInterval{
+        return end.timeIntervalSinceDate(start)
+    }
+    
+    func recurringMessage(receivedMessages: BLEMessage) {
+        //this is the message that recurrs
+        receivedMessages.numBounces_ = receivedMessages.numBounces_ + 1
+        var path = NSMutableArray(array: receivedMessages.path_)
+        path.addObject(UIDevice.currentDevice().name)
+        var arrPath = NSArray(array: path)
+        receivedMessages.path_ = arrPath
+        
+        var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(receivedMessages)
+        var allPeers = appDelegate.mcManager!.session.connectedPeers
+        var error: NSError?
+        appDelegate.mcManager?.session.sendData(dataToSend, toPeers: allPeers, withMode: MCSessionSendDataMode.Reliable, error: &error)
+        if((error) != nil){
+            print(error?.localizedDescription)
+        }
+        
+    }
 }
 
