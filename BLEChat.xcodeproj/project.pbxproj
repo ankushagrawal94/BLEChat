@@ -12,6 +12,7 @@
 		1C03C08F19E19AC20054FB87 /* kush.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C03C08A19E19AC20054FB87 /* kush.png */; };
 		1C03C09019E19AC20054FB87 /* elle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C03C08B19E19AC20054FB87 /* elle.png */; };
 		1C03C09119E19AC20054FB87 /* rohan.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C03C08C19E19AC20054FB87 /* rohan.png */; };
+		1C03C09719E1A13F0054FB87 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C03C09619E1A13F0054FB87 /* Images-2.xcassets */; };
 		1C1515E119E18C0600AD8FC6 /* Arrows-Back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1515E019E18C0600AD8FC6 /* Arrows-Back-icon.png */; };
 		1C1515E519E190E200AD8FC6 /* background_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1515E419E190E200AD8FC6 /* background_home.png */; };
 		A90AAEEB8EEF140154273D3A /* libPods-BLEChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBAC1403685E9A98FEC45C9 /* libPods-BLEChat.a */; };
@@ -47,6 +48,7 @@
 		1C03C08A19E19AC20054FB87 /* kush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kush.png; sourceTree = "<group>"; };
 		1C03C08B19E19AC20054FB87 /* elle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elle.png; sourceTree = "<group>"; };
 		1C03C08C19E19AC20054FB87 /* rohan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rohan.png; sourceTree = "<group>"; };
+		1C03C09619E1A13F0054FB87 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		1C1515E019E18C0600AD8FC6 /* Arrows-Back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrows-Back-icon.png"; sourceTree = "<group>"; };
 		1C1515E419E190E200AD8FC6 /* background_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_home.png; sourceTree = "<group>"; };
 		4C2AA6CE7072019A0A666605 /* Pods-BLEChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLEChat/Pods-BLEChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				AC28C99519DF47B700DA61BD /* LaunchScreen.xib */,
 				AC28C9B219E0255600DA61BD /* FirstViewController.swift */,
 				EB8D897919E0B4770011B730 /* BLEMessage.swift */,
+				1C03C09619E1A13F0054FB87 /* Images-2.xcassets */,
 				AC28C98A19DF47B700DA61BD /* Supporting Files */,
 			);
 			path = BLEChat;
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC28C99219DF47B700DA61BD /* Main.storyboard in Resources */,
+				1C03C09719E1A13F0054FB87 /* Images-2.xcassets in Resources */,
 				1C1515E519E190E200AD8FC6 /* background_home.png in Resources */,
 				1C03C09119E19AC20054FB87 /* rohan.png in Resources */,
 				1C03C09019E19AC20054FB87 /* elle.png in Resources */,
@@ -467,6 +471,7 @@
 			baseConfigurationReference = 4C2AA6CE7072019A0A666605 /* Pods-BLEChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -485,6 +490,7 @@
 			baseConfigurationReference = AE3A8E6CAC30F1F31B85D5B6 /* Pods-BLEChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
