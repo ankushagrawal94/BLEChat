@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C03C08D19E19AC20054FB87 /* long.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C03C08819E19AC20054FB87 /* long.png */; };
+		1C03C08E19E19AC20054FB87 /* clayton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C03C08919E19AC20054FB87 /* clayton.png */; };
+		1C03C08F19E19AC20054FB87 /* kush.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C03C08A19E19AC20054FB87 /* kush.png */; };
+		1C03C09019E19AC20054FB87 /* elle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C03C08B19E19AC20054FB87 /* elle.png */; };
+		1C03C09119E19AC20054FB87 /* rohan.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C03C08C19E19AC20054FB87 /* rohan.png */; };
 		1C1515E119E18C0600AD8FC6 /* Arrows-Back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1515E019E18C0600AD8FC6 /* Arrows-Back-icon.png */; };
 		1C1515E519E190E200AD8FC6 /* background_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1515E419E190E200AD8FC6 /* background_home.png */; };
 		A90AAEEB8EEF140154273D3A /* libPods-BLEChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBAC1403685E9A98FEC45C9 /* libPods-BLEChat.a */; };
@@ -36,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C03C08819E19AC20054FB87 /* long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = long.png; sourceTree = "<group>"; };
+		1C03C08919E19AC20054FB87 /* clayton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clayton.png; sourceTree = "<group>"; };
+		1C03C08A19E19AC20054FB87 /* kush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kush.png; sourceTree = "<group>"; };
+		1C03C08B19E19AC20054FB87 /* elle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elle.png; sourceTree = "<group>"; };
+		1C03C08C19E19AC20054FB87 /* rohan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rohan.png; sourceTree = "<group>"; };
 		1C1515E019E18C0600AD8FC6 /* Arrows-Back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrows-Back-icon.png"; sourceTree = "<group>"; };
 		1C1515E419E190E200AD8FC6 /* background_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_home.png; sourceTree = "<group>"; };
 		4C2AA6CE7072019A0A666605 /* Pods-BLEChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLEChat/Pods-BLEChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +95,11 @@
 		1C1515D019E17DE700AD8FC6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1C03C08819E19AC20054FB87 /* long.png */,
+				1C03C08919E19AC20054FB87 /* clayton.png */,
+				1C03C08A19E19AC20054FB87 /* kush.png */,
+				1C03C08B19E19AC20054FB87 /* elle.png */,
+				1C03C08C19E19AC20054FB87 /* rohan.png */,
 				1C1515E419E190E200AD8FC6 /* background_home.png */,
 				1C1515E019E18C0600AD8FC6 /* Arrows-Back-icon.png */,
 			);
@@ -260,9 +275,14 @@
 			files = (
 				AC28C99219DF47B700DA61BD /* Main.storyboard in Resources */,
 				1C1515E519E190E200AD8FC6 /* background_home.png in Resources */,
+				1C03C09119E19AC20054FB87 /* rohan.png in Resources */,
+				1C03C09019E19AC20054FB87 /* elle.png in Resources */,
 				1C1515E119E18C0600AD8FC6 /* Arrows-Back-icon.png in Resources */,
 				AC28C99719DF47B700DA61BD /* LaunchScreen.xib in Resources */,
+				1C03C08E19E19AC20054FB87 /* clayton.png in Resources */,
 				AC28C99419DF47B700DA61BD /* Images.xcassets in Resources */,
+				1C03C08F19E19AC20054FB87 /* kush.png in Resources */,
+				1C03C08D19E19AC20054FB87 /* long.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
