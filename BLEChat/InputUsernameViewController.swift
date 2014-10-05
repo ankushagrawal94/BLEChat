@@ -29,8 +29,7 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let viewController:UsersTableViewController = segue.destinationViewController as UsersTableViewController
-        self.navigationController?.setNavigationBar
-        Hidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         //segue.destinationViewController.username = username
     }

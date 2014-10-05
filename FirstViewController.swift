@@ -43,11 +43,12 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
         button.addTarget(self, action: "sendText:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
         
+        sender = UIDevice.currentDevice().name
         sender = (sender != nil) ? sender : "Anonymous"
         setupAvatarImage(sender, imageUrl: avatarUrlStrings[username], incoming: false)
         senderImageUrl = avatarUrlStrings[username]
         
-        self.title = sender
+        self.title = username
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MSDidReceiveDataWithNotification", object: nil)
         
