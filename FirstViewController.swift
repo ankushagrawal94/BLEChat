@@ -113,14 +113,14 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
             //Check if we are the intended target
             if( UIDevice.currentDevice().name == receivedMessage.recipient_ ) {
                 //Then add this to the Textview
-                
+                println("recepient reached")
             }
             else {
                 //Check if the path already contains 'us'
                 /*if !contains(receivedMessage.path_, UIDevice.currentDevice().name as String)
                 */
                 var elapsed = self.subtractDates(NSDate(), end: receivedMessage.initial_timestamp_!)
-                if( elapsed > 5){
+                if( elapsed > 10){
                     println("discard message")
                 }
                 else {
