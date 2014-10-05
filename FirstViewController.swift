@@ -73,7 +73,7 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
         
         messages.append(message)
         
-        //finishSendingMessage()
+        finishSendingMessage()
     }
     
     func makeMyMessage(text: String!) -> BLEMessage {

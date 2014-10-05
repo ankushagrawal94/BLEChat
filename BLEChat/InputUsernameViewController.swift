@@ -23,9 +23,9 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let viewController:ViewController = segue.destinationViewController as ViewController
+        let viewController:UsersTableViewController = segue.destinationViewController as UsersTableViewController
         
-        viewController.username = username.text
+        viewController.displayName = usernameTextView.text
         //segue.destinationViewController.username = username
     }
 
