@@ -26,7 +26,7 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
         print(username)
         println("first vc did load")
         var button = UIButton(frame: CGRectMake(20, 20, 50, 30))
-        button.addTarget(self, action: "tap:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: "sendText:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
         //appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MSDidReceiveDataWithNotification", object: nil)
@@ -39,7 +39,7 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
         var recipient: NSString = ""
         var sender: NSString = UIDevice.currentDevice().name
         var num_bounces: Int = 0
-        var messageText: String = "This isws the brand new message!!!"
+        var messageText: String = "This is the brand new message!!!"
         var path: NSArray = ["R"]
         
         var message = BLEMessage(type: type, sender: sender, recipient: recipient, text: messageText, numBounces: num_bounces, path: path)
