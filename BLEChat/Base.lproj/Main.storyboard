@@ -72,8 +72,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlQ-ia-oDx">
-                                <rect key="frame" x="146" y="210" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="146" y="210" width="74" height="30"/>
+                                <state key="normal" title="Find Peers">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -81,8 +81,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U84-Ec-S7e">
-                                <rect key="frame" x="146" y="354" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="146" y="354" width="102" height="30"/>
+                                <state key="normal" title="Send Message">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -118,11 +118,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bk-pH-KX8">
-                                <rect key="frame" x="144" y="409" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="144" y="409" width="69" height="30"/>
+                                <state key="normal" title="Send Text">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="sendText:" destination="Mft-Mr-HUx" eventType="touchUpInside" id="nBz-Au-huz"/>
                                     <action selector="tap:" destination="Mft-Mr-HUx" eventType="touchUpInside" id="qRB-V5-x8i"/>
                                 </connections>
                             </button>

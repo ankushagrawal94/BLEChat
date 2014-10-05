@@ -10,12 +10,16 @@ import UIKit
 import MultipeerConnectivity
 
 class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
-
+    
     var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     var username: NSString = UIDevice.currentDevice().name
     var usersArr: [String] = [String]()
     
     @IBOutlet var textLabel: UILabel!
+    
+    @IBAction func sendText(sender: AnyObject) {
+        sendMyMessage()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +36,15 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
     
     func sendMyMessage() {
         var type: NSString = "message"
-        var to: NSString = ""
-        var from: NSString = UIDevice.currentDevice().name
-        println("from: " + from)
-        var init_timestamp: NSString = getCurrDate()
-        var num_bounces: NSInteger = 0
-        var message: NSString = "This is the brand new message!!!"
+        var recipient: NSString = ""
+        var sender: NSString = UIDevice.currentDevice().name
+        var num_bounces: Int = 0
+        var messageText: String = "This isws the brand new message!!!"
         var path: NSArray = ["R"]
-        var textMessage = NSDictionary(objects: [type, to, from, init_timestamp, num_bounces, message, path], forKeys: ["type", "to", "from", "init_timestamp", "num_bounces", "message", "path"], count: 7)
-        var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(textMessage)
+        
+        var message = BLEMessage(type: type, sender: sender, recipient: recipient, text: messageText, numBounces: num_bounces, path: path)
+        
+        var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(message)
         var allPeers = appDelegate.mcManager?.session.connectedPeers
         var error: NSError?
         appDelegate.mcManager?.session.sendData(dataToSend, toPeers: allPeers, withMode: MCSessionSendDataMode.Reliable, error: &error)
@@ -57,12 +61,13 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
     
     func sendEnter() {
         var type = "enter"
-        var path = NSArray(object: username)
-        var dict = NSDictionary(objects: [type, username, path], forKeys: ["type", "username", "path"], count: 3)
-        var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(dict)
+        var message = BLEMessage(type: type, sender: username)
+        
+        var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(message)
         var allPeers = appDelegate.mcManager!.session.connectedPeers
         println(appDelegate.mcManager!.session.connectedPeers.count)
         //println(appDelegate!.mcManager!.session.connectedPeers.count)
+        
         var error: NSError?
         appDelegate.mcManager?.session.sendData(dataToSend, toPeers: allPeers, withMode: MCSessionSendDataMode.Reliable, error: &error)
         if((error) != nil){
@@ -71,54 +76,64 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
         //print("all peers is: ")
         //print(allPeers)
     }
-
+    
     func didReceiveDataWithNotification(notification: NSNotification) {
         var peerID: MCPeerID = notification.userInfo?["peerID"]! as MCPeerID
         var peerDisplayName = peerID.displayName as String
         var receivedData = notification.userInfo?["data"] as NSData
-        var receivedDict: NSDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(receivedData) as NSDictionary
-        var type = receivedDict["type"] as NSString
-        if(type == "message"){
-            var temp = textLabel.text! + peerDisplayName + " wrote: " + (receivedDict["message"] as NSString)
-            print(peerDisplayName + " wrote: " + (receivedDict["message"] as NSString) + "\n")
+        
+        var receivedMessage: BLEMessage = NSKeyedUnarchiver.unarchiveObjectWithData(receivedData) as BLEMessage
+        
+        var type = receivedMessage.type()
+        
+        if (type == "message") {
+            var temp = textLabel.text! + peerDisplayName + " wrote: " + receivedMessage.text()
+            print(peerDisplayName + " wrote: " + receivedMessage.text() + "\n")
             
-            println(receivedDict["from"])
-            println(peerDisplayName)
+            //println(receivedDict["from"])
+            //println(peerDisplayName)
             //Determine if we want to trasmit this to other phones
-            if ((receivedDict["to"] as String) != UIDevice.currentDevice().name){
+            
+            if (receivedMessage.recipient() != UIDevice.currentDevice().name) {
                 sendMyMessage()
                 println("first case")
-            }else {
+            } else {
                 textLabel.text = temp
                 println("second case")
             }
         }
-        else if (type == "enter"){
+            
+        else if (type == "enter") {
             //print(receivedDict["username"] as NSString)
             //print(usersArr)
-            if !contains(usersArr, receivedDict["username"] as NSString) {
-                usersArr.append(receivedDict["username"] as NSString)
+            
+            if !contains(usersArr, receivedMessage.sender()) {
+                
+                usersArr.append(receivedMessage.sender())
                 //print(usersArr)
                 
-                //Send back to OP
+                //Send back to OP (person entering)
                 var type = "acq_lib"
-                var target = receivedDict["username"] as NSString
-                var dict = NSDictionary(objects: [type, ], forKeys: ["type", "target"], count: 2)
-                var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(dict)
+                var target = receivedMessage.sender()
+                
+                var message = BLEMessage(type: type, sender: username, recipient: target)
+                var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(message)
                 var allPeers = appDelegate.mcManager?.session.connectedPeers
                 var error: NSError?
                 appDelegate.mcManager?.session.sendData(dataToSend, toPeers: allPeers, withMode: MCSessionSendDataMode.Reliable, error: &error)
-                if((error) != nil){
+                if (error != nil) {
                     print(error?.localizedDescription)
                 }
                 
                 //Send out to network
                 var type2 = "enter"
-                var path2 = receivedDict["path"] as NSArray
+                var path2 = receivedMessage.path() as NSArray
                 var path3 = NSMutableArray(array: path2)
                 path3.addObject(username)
-                var dict2 = NSDictionary(objects: [type, username,path3], forKeys: ["type", "username", "path"], count: 3)
-                var dataToSend2: NSData = NSKeyedArchiver.archivedDataWithRootObject(dict)
+                
+                var message2 = BLEMessage(type: type, sender: username, path: path3)
+                
+                var dataToSend2: NSData = NSKeyedArchiver.archivedDataWithRootObject(message2)
                 var doReBroadcast = false
                 for seenUser in path2{
                     let count: Int? = appDelegate.mcManager?.session.connectedPeers.count as Int?
@@ -133,7 +148,7 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
                         }
                     }
                 }
-                if doReBroadcast{
+                if doReBroadcast {
                     var allPeers2 = appDelegate.mcManager?.session.connectedPeers
                     var error2: NSError?
                     appDelegate.mcManager?.session.sendData(dataToSend2, toPeers: allPeers2, withMode: MCSessionSendDataMode.Reliable, error: &error2)
@@ -145,17 +160,19 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
             }
         }
         else if (type == "acq_lib") {
-            if(username == (receivedDict["target"] as NSString)){
-                //You are the OP
-                usersArr = (receivedDict["usersArr"] as [String])
+            if (username == receivedMessage.recipient()) {
+                //You..
+                //You...
+                //...
+                //You ARE the OP
+                //DUN DUN DUN
+                
+                // We should be doing something like
+                // this here: v but it wasn't working
+                usersArr = receivedMessage.path() as [String]
                 println(usersArr)
             }
         }
-    }
-
-    @IBAction func tap(sender: AnyObject) {
-        sendMyMessage()
-        //sendEnter()
     }
     
     func getCurrDate() -> String {

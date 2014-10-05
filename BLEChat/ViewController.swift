@@ -10,7 +10,7 @@ import UIKit
 import MultipeerConnectivity
 
 class ViewController: UIViewController {
-
+    
     var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     var username: NSString = UIDevice.currentDevice().name
     var usersArr: [String] = [String]()
@@ -20,13 +20,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MSDidReceiveDataWithNotification", object: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
     @IBAction func tap(sender: AnyObject) {
         println("before push")
         self.navigationController?.pushViewController(ConnectionsViewController(), animated: true)
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
                 path3.addObject(username)
                 var dict2 = NSDictionary(objects: [type, username,path3], forKeys: ["type", "username", "path"], count: 3)
                 var dataToSend2: NSData = NSKeyedArchiver.archivedDataWithRootObject(dict)
-
+                
                 var doReBroadcast = false
                 let count: Int? = appDelegate.mcManager?.session.connectedPeers.count as Int?
                 if count >= 1 {
@@ -111,7 +111,7 @@ class ViewController: UIViewController {
                             }
                         }
                     }
-                    if doReBroadcast{
+                    if doReBroadcast {
                         var allPeers2 = appDelegate.mcManager?.session.connectedPeers
                         var error2: NSError?
                         appDelegate.mcManager?.session.sendData(dataToSend2, toPeers: allPeers2, withMode: MCSessionSendDataMode.Reliable, error: &error2)
@@ -164,6 +164,6 @@ class ViewController: UIViewController {
         var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
         return DateInFormat
     }
-
+    
 }
 
