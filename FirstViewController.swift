@@ -36,7 +36,7 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
         automaticallyScrollsToMostRecentMessage = true
         
         var starterMessage: BLEMessage = makeMyMessage("Hey there!")
-        starterMessage.sender_ = "Someone!"
+        starterMessage.sender_ = username
         messages.append(starterMessage)
         
         var button = UIButton(frame: CGRectMake(20, 20, 50, 30))
@@ -76,7 +76,7 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
         
         var message = makeMyMessage(text)
         
-        sendMyMessage(makeMyMessage("wee"))
+        sendMyMessage(message)
         
         messages.append(message)
         
@@ -85,7 +85,7 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
     
     func makeMyMessage(text: String!) -> BLEMessage {
         var type: NSString = "message"
-        var recipient: NSString = "Rohan’s iPhone" //Name of the target. Need to have four of these in a list somewhere
+        var recipient: NSString = username //Name of the target. Need to have four of these in a list somewhere
         var sender: NSString = UIDevice.currentDevice().name
         var num_bounces: Int = 0
         var path: NSArray = [UIDevice.currentDevice().name]
@@ -155,7 +155,7 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
         var receivedData = notification.userInfo?["data"] as NSData
         
         var receivedMessage: BLEMessage = NSKeyedUnarchiver.unarchiveObjectWithData(receivedData) as BLEMessage
-        
+        //println("username: " + sender + "\n" + receivedMessage)
         var type = receivedMessage.type()
         
         if (type == "message") {
@@ -178,6 +178,7 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
                 }
                 else {
                     recurringMessage(receivedMessage)
+                    finishSendingMessage()
                 }
                 /*}*/
             }

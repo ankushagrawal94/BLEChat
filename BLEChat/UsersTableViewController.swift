@@ -16,7 +16,7 @@ class UsersTableViewController: UITableViewController, MCBrowserViewControllerDe
     var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     var sender: NSString = UIDevice.currentDevice().name
     var usersArr: [String] = [String]()
-    var mailButton = UIButton(frame: CGRectMake(225, 13, 20, 20))
+    var mailButton = UIButton(frame: CGRectMake(255, 13, 20, 20))
     
     var arrConnectedDevices: NSMutableArray = NSMutableArray(object: UIDevice.currentDevice().name)
     var delegate: ConnectionsViewControllerDelegate?
