@@ -18,6 +18,10 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         ourView.backgroundColor = UIColor(patternImage: UIImage(named: "background_home.png")!)
+    }
+    
+    func viewWillAppear() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
 
     }
 
@@ -25,6 +29,9 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let viewController:UsersTableViewController = segue.destinationViewController as UsersTableViewController
+        self.navigationController?.setNavigationBar
+        Hidden(true, animated: true)
+
         
         //segue.destinationViewController.username = username
     }
