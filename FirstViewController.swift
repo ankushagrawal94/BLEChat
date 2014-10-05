@@ -12,14 +12,15 @@ import MultipeerConnectivity
 class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerDelegate {
     
     var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-    var username: NSString = UIDevice.currentDevice().name
     var displayName: String = "" // this is what the user thinks their name is but it really isnt
     var usersArr: [String] = [String]()
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
+    var avatarUrlStrings = Dictionary<String, String>()
     var avatars = Dictionary<String, UIImage>()
     var senderImageUrl: String!
     var batchMessages = true
+    var username = ""
     //override var sender = UIDevice.currentDevice().name as String!
     var messages = [BLEMessage]()
     
@@ -41,6 +42,11 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
         var button = UIButton(frame: CGRectMake(20, 20, 50, 30))
         button.addTarget(self, action: "sendText:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
+        
+        sender = (sender != nil) ? sender : "Anonymous"
+        setupAvatarImage(sender, imageUrl: avatarUrlStrings[username], incoming: false)
+        senderImageUrl = avatarUrlStrings[username]
+
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MSDidReceiveDataWithNotification", object: nil)
         
