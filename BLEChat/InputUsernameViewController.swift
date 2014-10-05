@@ -16,15 +16,17 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ourView.backgroundColor = UIColor(patternImage: UIImage(named: "background_home.png")!)
         // Do any additional setup after loading the view.
+        ourView.backgroundColor = UIColor(patternImage: UIImage(named: "background_home.png")!)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let viewController:UsersTableViewController = segue.destinationViewController as UsersTableViewController
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         //segue.destinationViewController.username = username
     }
 
