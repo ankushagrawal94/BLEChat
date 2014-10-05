@@ -117,7 +117,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlA-Kx-4wg">
-                                            <rect key="frame" x="0.0" y="-2" width="76" height="81"/>
+                                            <rect key="frame" x="0.0" y="-3" width="76" height="81"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>

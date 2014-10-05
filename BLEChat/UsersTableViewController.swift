@@ -17,6 +17,7 @@ class UsersTableViewController: UITableViewController, MCBrowserViewControllerDe
     var sender: NSString = UIDevice.currentDevice().name
     var usersArr: [String] = [String]()
     var mailButton = UIButton(frame: CGRectMake(255, 13, 20, 20))
+    var avatars = Dictionary<String, UIImage>()
     
     var arrConnectedDevices: NSMutableArray = NSMutableArray(object: UIDevice.currentDevice().name)
     var delegate: ConnectionsViewControllerDelegate?
@@ -34,11 +35,26 @@ class UsersTableViewController: UITableViewController, MCBrowserViewControllerDe
         self.mailButton.addTarget(self, action: "connect", forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationController?.navigationBar.addSubview(self.mailButton)
         
-        
         // Uncomment the following line to preserve selection between presentations
         
         // self.clearsSelectionOnViewWillAppear = false
         
+        
+        //let url = NSURL(string: imageUrl!)
+        //let image = UIImage(data: NSData(contentsOfURL: url!)!)
+        
+        
+        avatars["Ankush"] = UIImage(named: "kush.png")
+        
+        avatars["Clayton"] = UIImage(named: "clayton.png")
+        
+        avatars["Elle"] = UIImage(named: "elle.png")
+        
+        avatars["Long"] = UIImage(named: "long.png")
+        
+        avatars["Rohan"] = UIImage(named: "rohan.png")
+
+
         
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -46,6 +62,7 @@ class UsersTableViewController: UITableViewController, MCBrowserViewControllerDe
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
     }
+    
     
     func connect() {
         println("pushing view controller")
@@ -102,30 +119,35 @@ class UsersTableViewController: UITableViewController, MCBrowserViewControllerDe
         if indexPath.row == 0 {
             
             cell.textLabel?.text = "Ankush"
+            cell.imageView?.image = avatars["Ankush"]
             
         }
         
         if indexPath.row == 1 {
             
             cell.textLabel?.text = "Clayton"
+            cell.imageView?.image = avatars["Clayton"]
             
         }
         
         if indexPath.row == 2 {
             
             cell.textLabel?.text = "Elle"
+            cell.imageView?.image = avatars["Elle"]
             
         }
         
         if indexPath.row == 3 {
             
             cell.textLabel?.text = "Long"
+            cell.imageView?.image = avatars["Long"]
             
         }
         
         if indexPath.row == 4 {
             
             cell.textLabel?.text = "Rohan"
+            cell.imageView?.image = avatars["Rohan"]
             
         }
         
@@ -167,19 +189,8 @@ class UsersTableViewController: UITableViewController, MCBrowserViewControllerDe
             firstVC.username = "Rohan"
         }
         
-        var dict = Dictionary<String, UIImage>()
         
-        dict["Ankush"] = UIImage(named: "kush.png")
-        
-        dict["Clayton"] = UIImage(named: "clayton.png")
-        
-        dict["Elle"] = UIImage(named: "elle.png")
-        
-        dict["Long"] = UIImage(named: "long.png")
-        
-        dict["Rohan"] = UIImage(named: "rohan.png")
-        
-        firstVC.avatars = dict
+        firstVC.avatars = avatars
         
         firstVC.sender = sender
         
