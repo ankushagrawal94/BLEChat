@@ -34,7 +34,7 @@ class UsersTableViewController: UITableViewController, MCBrowserViewControllerDe
         self.mailButton.setBackgroundImage(UIImage(named: "user.png"), forState: UIControlState.Normal)
         self.mailButton.addTarget(self, action: "connect", forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationController?.navigationBar.addSubview(self.mailButton)
-        
+
         // Uncomment the following line to preserve selection between presentations
         
         // self.clearsSelectionOnViewWillAppear = false

@@ -16,8 +16,9 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ourView.backgroundColor = UIColor(patternImage: UIImage(named: "background_home.png")!)
         // Do any additional setup after loading the view.
+        ourView.backgroundColor = UIColor(patternImage: UIImage(named: "background_home.png")!)
+
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
