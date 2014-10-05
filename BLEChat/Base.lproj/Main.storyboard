@@ -48,10 +48,11 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Zzi-l5-F3L"/>
                     <connections>
+                        <outlet property="ourView" destination="R1b-YZ-Y1N" id="imQ-yf-5Tf"/>
                         <outlet property="username" destination="B4p-ID-S2w" id="eYf-oo-06v"/>
                     </connections>
                 </viewController>

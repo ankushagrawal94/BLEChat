@@ -11,9 +11,11 @@ import UIKit
 class InputUsernameViewController: UIViewController {
 
     @IBOutlet var username: UITextField!
+    @IBOutlet var ourView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ourView.backgroundColor = UIColor(patternImage: UIImage(named: "app-blurred-bg-3.jpg")!)
         // Do any additional setup after loading the view.
     }
 
