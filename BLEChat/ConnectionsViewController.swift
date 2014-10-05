@@ -16,7 +16,7 @@ protocol ConnectionsViewControllerDelegate {
 class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelegate, UITextFieldDelegate {
     
     var appDelegate: AppDelegate?
-    var arrConnectedDevices: NSMutableArray?
+    var arrConnectedDevices: NSMutableArray = NSMutableArray(object: UIDevice.currentDevice().name)
     var delegate: ConnectionsViewControllerDelegate?
 
     override func viewDidLoad() {
@@ -55,20 +55,21 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
         
         if state != MCSessionState.Connecting.rawValue {
             if state == MCSessionState.Connected.rawValue {
-                println("case1")
-                arrConnectedDevices?.addObject(displayName)
+                println("connected")
+                arrConnectedDevices.addObject(displayName)
                 //Call delegate method
-                self.delegate?.callSendEnter()
+                var firstVC = FirstViewController()
+                firstVC.callSendEnter()
+                //self.delegate?.callSendEnter()
             }
-            else if state == MCSessionState.NotConnected.rawValue && arrConnectedDevices?.count > 0{
-                println("case2")
-                var indexOfPeer = arrConnectedDevices?.indexOfObject(displayName)
-                arrConnectedDevices?.removeObjectAtIndex(indexOfPeer!)
+            else if state == MCSessionState.NotConnected.rawValue && arrConnectedDevices.count > 0{
+                println("not connected")
+                var indexOfPeer = arrConnectedDevices.indexOfObject(displayName)
+                arrConnectedDevices.removeObjectAtIndex(indexOfPeer)
             }
             
-            print(arrConnectedDevices!)
+            print(arrConnectedDevices)
             var peersExist = appDelegate?.mcManager?.session.connectedPeers.count == 0
-            
             self.dismissViewControllerAnimated(true, completion: nil)
             self.navigationController?.popViewControllerAnimated(true)
         }
@@ -76,6 +77,6 @@ class ConnectionsViewController: UIViewController, MCBrowserViewControllerDelega
     
     func disconnect() {
         appDelegate?.mcManager?.session.disconnect()
-        arrConnectedDevices?.removeAllObjects()
+        arrConnectedDevices.removeAllObjects()
     }
 }
