@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C1515E119E18C0600AD8FC6 /* Arrows-Back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1515E019E18C0600AD8FC6 /* Arrows-Back-icon.png */; };
-		1C1515E319E18C1600AD8FC6 /* app-blurred-bg-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C1515E219E18C1600AD8FC6 /* app-blurred-bg-3.jpg */; };
+		1C1515E519E190E200AD8FC6 /* background_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C1515E419E190E200AD8FC6 /* background_home.png */; };
 		A90AAEEB8EEF140154273D3A /* libPods-BLEChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBAC1403685E9A98FEC45C9 /* libPods-BLEChat.a */; };
 		AC28C98D19DF47B700DA61BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C98C19DF47B700DA61BD /* AppDelegate.swift */; };
 		AC28C98F19DF47B700DA61BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C98E19DF47B700DA61BD /* ViewController.swift */; };
@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		1C1515E019E18C0600AD8FC6 /* Arrows-Back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrows-Back-icon.png"; sourceTree = "<group>"; };
-		1C1515E219E18C1600AD8FC6 /* app-blurred-bg-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "app-blurred-bg-3.jpg"; sourceTree = "<group>"; };
+		1C1515E419E190E200AD8FC6 /* background_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_home.png; sourceTree = "<group>"; };
 		4C2AA6CE7072019A0A666605 /* Pods-BLEChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLEChat/Pods-BLEChat.debug.xcconfig"; sourceTree = "<group>"; };
 		5BBAC1403685E9A98FEC45C9 /* libPods-BLEChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLEChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC28C98719DF47B700DA61BD /* BLEChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +85,7 @@
 		1C1515D019E17DE700AD8FC6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1C1515E219E18C1600AD8FC6 /* app-blurred-bg-3.jpg */,
+				1C1515E419E190E200AD8FC6 /* background_home.png */,
 				1C1515E019E18C0600AD8FC6 /* Arrows-Back-icon.png */,
 			);
 			name = Resources;
@@ -259,8 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC28C99219DF47B700DA61BD /* Main.storyboard in Resources */,
+				1C1515E519E190E200AD8FC6 /* background_home.png in Resources */,
 				1C1515E119E18C0600AD8FC6 /* Arrows-Back-icon.png in Resources */,
-				1C1515E319E18C1600AD8FC6 /* app-blurred-bg-3.jpg in Resources */,
 				AC28C99719DF47B700DA61BD /* LaunchScreen.xib in Resources */,
 				AC28C99419DF47B700DA61BD /* Images.xcassets in Resources */,
 			);
