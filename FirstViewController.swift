@@ -9,42 +9,66 @@
 import UIKit
 import MultipeerConnectivity
 
-class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
+class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerDelegate {
     
     var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     var username: NSString = UIDevice.currentDevice().name
     var usersArr: [String] = [String]()
     
+    var messages = [BLEMessage]()
+    
     @IBOutlet var textLabel: UILabel!
     
     @IBAction func sendText(sender: AnyObject) {
-        sendMyMessage()
+        sendMyMessage(simpleMessage("test"))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(username)
-        println("first vc did load")
+
+        automaticallyScrollsToMostRecentMessage = true
+
+        
         var button = UIButton(frame: CGRectMake(20, 20, 50, 30))
         button.addTarget(self, action: "sendText:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(button)
-        //appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MSDidReceiveDataWithNotification", object: nil)
         
         // Do any additional setup after loading the view.
     }
     
-    func sendMyMessage() {
-        //This is what gets called the first time only
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.collectionViewLayout.springinessEnabled = true
+    }
+    
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        print("what");
+        
+        var message = simpleMessage(text)
+        
+        sendMyMessage(simpleMessage("wee"))
+        
+        messages.append(message)
+        
+        //finishSendingMessage()
+    }
+    
+    func simpleMessage(text: String!) -> BLEMessage {
         var type: NSString = "message"
         var recipient: NSString = "Rohan’s iPhone" //Name of the target. Need to have four of these in a list somewhere
         var sender: NSString = UIDevice.currentDevice().name
         var num_bounces: Int = 0
-        var messageText: String = "This is a message written by Moi"
         var path: NSArray = [UIDevice.currentDevice().name]
         
-        var message = BLEMessage(type: type, sender: sender, recipient: recipient, text: messageText, numBounces: num_bounces, path: path, initial_timestamp: NSDate())
+        var message = BLEMessage(type: type, sender: sender, recipient: recipient, text: text, numBounces: num_bounces, path: path)
         
+        return message
+    }
+    
+    func sendMyMessage(message: BLEMessage!) {
         var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(message)
         var allPeers = appDelegate.mcManager?.session.connectedPeers
         var error: NSError?
@@ -53,6 +77,7 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
             print(error?.localizedDescription)
         }
         print(allPeers)
+        
     }
     
     func recurringMessage(receivedMessages: BLEMessage) {
