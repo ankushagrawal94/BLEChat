@@ -36,7 +36,7 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
         automaticallyScrollsToMostRecentMessage = true
         
         var starterMessage: BLEMessage = makeMyMessage("Hey there!")
-        starterMessage.sender_ = username
+        starterMessage.sender_ = "CalHacks"
         messages.append(starterMessage)
         
         var button = UIButton(frame: CGRectMake(20, 20, 50, 30))
