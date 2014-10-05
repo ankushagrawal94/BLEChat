@@ -33,14 +33,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4p-ID-S2w">
-                                <rect key="frame" x="60" y="123" width="202" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="B4p-ID-S2w">
+                                <rect key="frame" x="31" y="166" width="258" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOR-kj-olq">
-                                <rect key="frame" x="137" y="161" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="111" y="228" width="98" height="30"/>
+                                <state key="normal" title="Username">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -48,11 +49,13 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Zzi-l5-F3L"/>
                     <connections>
+                        <outlet property="ourView" destination="R1b-YZ-Y1N" id="imQ-yf-5Tf"/>
                         <outlet property="username" destination="B4p-ID-S2w" id="eYf-oo-06v"/>
+                        <outlet property="usernameTextView" destination="B4p-ID-S2w" id="VCM-ZD-bcn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kV4-CN-oLj" userLabel="First Responder" sceneMemberID="firstResponder"/>

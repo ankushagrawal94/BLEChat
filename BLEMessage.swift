@@ -31,9 +31,9 @@ class BLEMessage : NSObject, JSQMessageData, NSCoding {
     var recipient_: String
     var numBounces_: Int
     var path_: NSArray
-    var initial_timestamp_:NSDate?
+    var imageUrl_: String?
 
-    init(type: String?, sender: String?, recipient: String?, text: String?, numBounces: Int?, path: NSArray?, initial_timestamp: NSDate) {
+    init(type: String?, sender: String?, recipient: String?, text: String?, numBounces: Int?, path: NSArray?) {
         self.type_ = type!
         self.text_ = text!
         self.sender_ = sender!
@@ -41,8 +41,6 @@ class BLEMessage : NSObject, JSQMessageData, NSCoding {
         self.recipient_ = recipient!
         self.numBounces_ = numBounces!
         self.path_ = path!
-        self.initial_timestamp_ = initial_timestamp
-        
     }
     
     init(type: String?, sender: String?) {
@@ -102,6 +100,10 @@ class BLEMessage : NSObject, JSQMessageData, NSCoding {
     
     func path() -> NSArray! {
         return path_;
+    }
+    
+    func imageUrl() -> String! {
+        return imageUrl_;
     }
     
     required init(coder aDecoder: NSCoder) {

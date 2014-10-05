@@ -8,12 +8,15 @@
 
 import UIKit
 
-class InputUsernameViewController: UIViewController {
+class InputUsernameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var username: UITextField!
+    @IBOutlet var ourView: UIView!
+    @IBOutlet weak var usernameTextView: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ourView.backgroundColor = UIColor(patternImage: UIImage(named: "background_home.png")!)
         // Do any additional setup after loading the view.
     }
 
@@ -26,4 +29,9 @@ class InputUsernameViewController: UIViewController {
         //segue.destinationViewController.username = username
     }
 
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        //pass the username over
+        return true
+    }
+    
 }
