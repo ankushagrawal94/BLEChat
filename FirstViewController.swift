@@ -13,6 +13,7 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
     
     var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     var username: NSString = UIDevice.currentDevice().name
+    var displayName: String = "" // this is what the user thinks their name is but it really isnt
     var usersArr: [String] = [String]()
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
@@ -25,7 +26,7 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
     @IBOutlet var textLabel: UILabel!
     
     @IBAction func sendText(sender: AnyObject) {
-        sendMyMessage(simpleMessage("test"))
+        sendMyMessage(makeMyMessage("test"))
     }
     
     override func viewDidLoad() {
@@ -33,8 +34,8 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
 
         automaticallyScrollsToMostRecentMessage = true
         
-        var starterMessage: BLEMessage = simpleMessage("Hey there!")
-        starterMessage.sender_ = "Me"
+        var starterMessage: BLEMessage = makeMyMessage("Hey there!")
+        starterMessage.sender_ = "Someone!"
         messages.append(starterMessage)
         
         var button = UIButton(frame: CGRectMake(20, 20, 50, 30))
@@ -66,16 +67,16 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         print("what");
         
-        var message = simpleMessage(text)
+        var message = makeMyMessage(text)
         
-        sendMyMessage(simpleMessage("wee"))
+        sendMyMessage(makeMyMessage("wee"))
         
         messages.append(message)
         
         //finishSendingMessage()
     }
     
-    func simpleMessage(text: String!) -> BLEMessage {
+    func makeMyMessage(text: String!) -> BLEMessage {
         var type: NSString = "message"
         var recipient: NSString = "Rohan’s iPhone" //Name of the target. Need to have four of these in a list somewhere
         var sender: NSString = UIDevice.currentDevice().name
@@ -96,7 +97,6 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
             print(error?.localizedDescription)
         }
         print(allPeers)
-        
     }
     
     func recurringMessage(receivedMessages: BLEMessage) {
@@ -160,6 +160,11 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
             if( UIDevice.currentDevice().name == receivedMessage.recipient_ ) {
                 //Then add this to the Textview
                 
+                
+                
+                messages.append(receivedMessage)
+                
+                // this is a thing
             }
             else {
                 //Check if the path already contains 'us'
