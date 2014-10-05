@@ -33,14 +33,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="B4p-ID-S2w">
-                                <rect key="frame" x="31" y="166" width="258" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please make sure bluetooth is enabled." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5q-MQ-We5">
+                                <rect key="frame" x="8" y="232" width="296" height="35"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="10"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOR-kj-olq">
-                                <rect key="frame" x="111" y="228" width="98" height="30"/>
-                                <state key="normal" title="Username">
+                                <rect key="frame" x="61" y="275" width="199" height="56"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="48"/>
+                                <state key="normal" title="Join Pool">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -54,8 +56,6 @@
                     <navigationItem key="navigationItem" id="Zzi-l5-F3L"/>
                     <connections>
                         <outlet property="ourView" destination="R1b-YZ-Y1N" id="imQ-yf-5Tf"/>
-                        <outlet property="username" destination="B4p-ID-S2w" id="eYf-oo-06v"/>
-                        <outlet property="usernameTextView" destination="B4p-ID-S2w" id="VCM-ZD-bcn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kV4-CN-oLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,15 +106,20 @@
         <scene sceneID="g6R-yd-dDM">
             <objects>
                 <tableViewController id="Yep-tI-hQB" customClass="UsersTableViewController" customModule="BLEChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="UGh-bX-bgE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="UGh-bX-bgE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" id="y1F-H9-1x6">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" rowHeight="76" id="y1F-H9-1x6">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y1F-H9-1x6" id="1Qq-vN-RfG">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlA-Kx-4wg">
+                                            <rect key="frame" x="0.0" y="-2" width="76" height="81"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -127,7 +132,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFd-qe-zIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="584"/>
+            <point key="canvasLocation" x="709" y="579.5"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="PJt-tz-vWi">

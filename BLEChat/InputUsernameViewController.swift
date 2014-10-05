@@ -25,7 +25,6 @@ class InputUsernameViewController: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
         let viewController:UsersTableViewController = segue.destinationViewController as UsersTableViewController
         
-        viewController.displayName = usernameTextView.text
         //segue.destinationViewController.username = username
     }
 

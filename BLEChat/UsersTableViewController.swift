@@ -135,31 +135,31 @@ class UsersTableViewController: UITableViewController {
         
         if indexPath.row == 0 {
             
-            firstVC.username = "Ankush"
+            firstVC.sender = "Ankush"
             
         }
         
         if indexPath.row == 1 {
             
-            firstVC.username = "Clayton"
+            firstVC.sender = "Clayton"
             
         }
         
         if indexPath.row == 2 {
             
-            firstVC.username = "Elle"
+            firstVC.sender = "Elle"
             
         }
         
         if indexPath.row == 3 {
             
-            firstVC.username = "Long"
+            firstVC.sender = "Long"
             
         }
         
         if indexPath.row == 4 {
             
-            firstVC.username = "Rohan"
+            firstVC.sender = "Rohan"
             
         }
         
@@ -179,6 +179,9 @@ class UsersTableViewController: UITableViewController {
         
         firstVC.avatars = dict
         
+        firstVC.username = username
+        
+
         
         
         self.navigationController?.pushViewController(firstVC, animated: true)

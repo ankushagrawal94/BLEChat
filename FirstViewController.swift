@@ -46,7 +46,8 @@ class FirstViewController: JSQMessagesViewController, ConnectionsViewControllerD
         sender = (sender != nil) ? sender : "Anonymous"
         setupAvatarImage(sender, imageUrl: avatarUrlStrings[username], incoming: false)
         senderImageUrl = avatarUrlStrings[username]
-
+        
+        self.title = sender
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didReceiveDataWithNotification:", name: "MSDidReceiveDataWithNotification", object: nil)
         
