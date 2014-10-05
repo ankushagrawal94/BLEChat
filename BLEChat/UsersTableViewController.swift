@@ -11,9 +11,22 @@ import UIKit
 
 class UsersTableViewController: UITableViewController {
     var displayName: NSString?
+    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    var username: NSString = UIDevice.currentDevice().name
+    var usersArr: [String] = [String]()
+    var mailButton = UIButton(frame: CGRectMake(225, 13, 20, 20))
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        //add a button on the top right and add the following action for it
+        
+        self.mailButton.setBackgroundImage(UIImage(named: "user.png"), forState: UIControlState.Normal)
+        self.mailButton.addTarget(self, action: "connect", forControlEvents: UIControlEvents.TouchUpInside)
+        self.navigationController?.navigationBar.addSubview(self.mailButton)
+        
+        
         // Uncomment the following line to preserve selection between presentations
         
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,6 +37,11 @@ class UsersTableViewController: UITableViewController {
         
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+    }
+    
+    func connect() {
+        println("pushing view controller")
+        self.navigationController?.pushViewController(ConnectionsViewController(), animated: true)
     }
     
     
@@ -117,31 +135,31 @@ class UsersTableViewController: UITableViewController {
         
         if indexPath.row == 0 {
             
-            firstVC.displayName = "Ankush"
+            firstVC.username = "Ankush"
             
         }
         
         if indexPath.row == 1 {
             
-            firstVC.displayName = "Clayton"
+            firstVC.username = "Clayton"
             
         }
         
         if indexPath.row == 2 {
             
-            firstVC.displayName = "Elle"
+            firstVC.username = "Elle"
             
         }
         
         if indexPath.row == 3 {
             
-            firstVC.displayName = "Long"
+            firstVC.username = "Long"
             
         }
         
         if indexPath.row == 4 {
             
-            firstVC.displayName = "Rohan"
+            firstVC.username = "Rohan"
             
         }
         

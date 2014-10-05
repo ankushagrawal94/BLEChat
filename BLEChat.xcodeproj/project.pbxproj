@@ -27,6 +27,7 @@
 		AC28C9B419E0255600DA61BD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28C9B219E0255600DA61BD /* FirstViewController.swift */; };
 		AC54E07E19E08ABC006CCFAD /* InputUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54E07D19E08ABC006CCFAD /* InputUsernameViewController.swift */; };
 		ACA0658319E19CE100A704DF /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0658219E19CE100A704DF /* UsersTableViewController.swift */; };
+		ACA0658519E1A30D00A704DF /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA0658419E1A30D00A704DF /* user.png */; };
 		EB8980A019E0AC9F003C5D09 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB89809F19E0AC9F003C5D09 /* AudioToolbox.framework */; };
 		EB8980A219E0ACC1003C5D09 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8980A119E0ACC1003C5D09 /* QuartzCore.framework */; };
 		EB8D897A19E0B4770011B730 /* BLEMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D897919E0B4770011B730 /* BLEMessage.swift */; };
@@ -68,6 +69,7 @@
 		AC28C9B219E0255600DA61BD /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = ../FirstViewController.swift; sourceTree = "<group>"; };
 		AC54E07D19E08ABC006CCFAD /* InputUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputUsernameViewController.swift; sourceTree = "<group>"; };
 		ACA0658219E19CE100A704DF /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		ACA0658419E1A30D00A704DF /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		AE3A8E6CAC30F1F31B85D5B6 /* Pods-BLEChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLEChat/Pods-BLEChat.release.xcconfig"; sourceTree = "<group>"; };
 		EB89809F19E0AC9F003C5D09 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EB8980A119E0ACC1003C5D09 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -99,6 +101,7 @@
 		1C1515D019E17DE700AD8FC6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ACA0658419E1A30D00A704DF /* user.png */,
 				1C03C08819E19AC20054FB87 /* long.png */,
 				1C03C08919E19AC20054FB87 /* clayton.png */,
 				1C03C08A19E19AC20054FB87 /* kush.png */,
@@ -281,6 +284,7 @@
 			files = (
 				AC28C99219DF47B700DA61BD /* Main.storyboard in Resources */,
 				1C03C09719E1A13F0054FB87 /* Images-2.xcassets in Resources */,
+				ACA0658519E1A30D00A704DF /* user.png in Resources */,
 				1C1515E519E190E200AD8FC6 /* background_home.png in Resources */,
 				1C03C09119E19AC20054FB87 /* rohan.png in Resources */,
 				1C03C09019E19AC20054FB87 /* elle.png in Resources */,
