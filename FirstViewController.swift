@@ -33,7 +33,8 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
     func sendMyMessage() {
         var to: NSString = "A" //A, C, L, R
         println(username!)
-        var from: NSString = username!
+        var from: NSString = UIDevice.currentDevice().name
+        println("from: " + from)
         var init_timestamp: NSString = getCurrDate()
         var num_bounces: NSInteger = 0
         var message: NSString = "This is the brand new message!!!"
@@ -72,7 +73,7 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
     
     func didReceiveDataWithNotification(notification: NSNotification) {
         var peerID: MCPeerID = notification.userInfo?["peerID"]! as MCPeerID
-        var peerDisplayName = peerID.displayName
+        var peerDisplayName = peerID.displayName as String
         var receivedData = notification.userInfo?["data"] as NSData
         var receivedDict: NSDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(receivedData) as NSDictionary
         var type = receivedDict["type"] as NSString
@@ -80,8 +81,10 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
             var temp = textLabel.text! + peerDisplayName + " wrote: " + (receivedDict["message"] as NSString)
             print(peerDisplayName + " wrote: " + (receivedDict["message"] as NSString) + "\n")
             
+            println(receivedDict["from"])
+            println(peerDisplayName)
             //Determine if we want to trasmit this to other phones
-            if ((receivedDict["from"] as String) != username){
+            if ((receivedDict["from"] as String) != peerDisplayName){
                 sendMyMessage()
                 println("first case")
             }else {
