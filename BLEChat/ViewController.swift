@@ -162,6 +162,7 @@ class ViewController: UIViewController {
         var dateFormatter:NSDateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
         var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
+        print (DateInFormat)
         return DateInFormat
     }
     

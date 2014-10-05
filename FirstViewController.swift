@@ -35,14 +35,15 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
     }
     
     func sendMyMessage() {
+        //This is what gets called the first time only
         var type: NSString = "message"
-        var recipient: NSString = ""
+        var recipient: NSString = "Rohan’s iPhone" //Name of the target. Need to have four of these in a list somewhere
         var sender: NSString = UIDevice.currentDevice().name
         var num_bounces: Int = 0
-        var messageText: String = "This is the brand new message!!!"
-        var path: NSArray = ["R"]
+        var messageText: String = "This is a message written by Moi"
+        var path: NSArray = [UIDevice.currentDevice().name]
         
-        var message = BLEMessage(type: type, sender: sender, recipient: recipient, text: messageText, numBounces: num_bounces, path: path)
+        var message = BLEMessage(type: type, sender: sender, recipient: recipient, text: messageText, numBounces: num_bounces, path: path, initial_timestamp: NSDate())
         
         var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(message)
         var allPeers = appDelegate.mcManager?.session.connectedPeers
@@ -52,6 +53,24 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
             print(error?.localizedDescription)
         }
         print(allPeers)
+    }
+    
+    func recurringMessage(receivedMessages: BLEMessage) {
+        //this is the message that recurrs
+        receivedMessages.numBounces_ = receivedMessages.numBounces_ + 1
+        var path = NSMutableArray(array: receivedMessages.path_)
+        path.addObject(UIDevice.currentDevice().name)
+        var arrPath = NSArray(array: path)
+        receivedMessages.path_ = arrPath
+        
+        var dataToSend: NSData = NSKeyedArchiver.archivedDataWithRootObject(receivedMessages)
+        var allPeers = appDelegate.mcManager!.session.connectedPeers
+        var error: NSError?
+        appDelegate.mcManager?.session.sendData(dataToSend, toPeers: allPeers, withMode: MCSessionSendDataMode.Reliable, error: &error)
+        if((error) != nil){
+            print(error?.localizedDescription)
+        }
+
     }
     
     func callSendEnter() {
@@ -87,22 +106,31 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
         var type = receivedMessage.type()
         
         if (type == "message") {
-            var temp = textLabel.text! + peerDisplayName + " wrote: " + receivedMessage.text()
+            //var temp = textLabel.text! + peerDisplayName + " wrote: " + receivedMessage.text()
             print(peerDisplayName + " wrote: " + receivedMessage.text() + "\n")
             
-            //println(receivedDict["from"])
-            //println(peerDisplayName)
             //Determine if we want to trasmit this to other phones
-            
-            if (receivedMessage.recipient() != UIDevice.currentDevice().name) {
-                sendMyMessage()
-                println("first case")
-            } else {
-                textLabel.text = temp
-                println("second case")
+            //Check if we are the intended target
+            if( UIDevice.currentDevice().name == receivedMessage.recipient_ ) {
+                //Then add this to the Textview
+                
             }
-        }
+            else {
+                //Check if the path already contains 'us'
+                /*if !contains(receivedMessage.path_, UIDevice.currentDevice().name as String)
+                */
+                var elapsed = self.subtractDates(NSDate(), end: receivedMessage.initial_timestamp_!)
+                if( elapsed > 5){
+                    println("discard message")
+                }
+                else {
+                    recurringMessage(receivedMessage)
+                }
+                /*}*/
+            }
             
+        }
+        /*
         else if (type == "enter") {
             //print(receivedDict["username"] as NSString)
             //print(usersArr)
@@ -172,14 +200,19 @@ class FirstViewController: UIViewController, ConnectionsViewControllerDelegate {
                 usersArr = receivedMessage.path() as [String]
                 println(usersArr)
             }
-        }
+        }*/
     }
     
-    func getCurrDate() -> String {
+    func getCurrDate() -> NSString {
         var todaysDate:NSDate = NSDate()
         var dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
-        var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        var DateInFormat:NSString = dateFormatter.stringFromDate(todaysDate)
         return DateInFormat
     }
+    
+    func subtractDates(start: NSDate, end: NSDate) -> NSTimeInterval{
+        return end.timeIntervalSinceDate(start)
+    }
+    
 }
