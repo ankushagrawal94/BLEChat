@@ -247,7 +247,7 @@
 				TargetAttributes = {
 					AC28C98619DF47B700DA61BD = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = J78S6YGC88;
+						DevelopmentTeam = Z5AR6RGC9X;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -256,6 +256,7 @@
 					};
 					AC28C99B19DF47B700DA61BD = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = Z5AR6RGC9X;
 						TestTargetID = AC28C98619DF47B700DA61BD;
 					};
 				};
