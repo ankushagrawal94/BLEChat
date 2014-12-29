@@ -1,7 +1,7 @@
 #Splash
 =======
 #####Created at CalHacks
-#####by Anksuh, Clayton, Elle, Long, and Rohan
+#####by Ankush, Clayton, Elle, Long, and Rohan
 #####On ChallengePost here: http://challengepost.com/software/splash
 ======
 The internet may be ubiquitous, but networking is not a solved problem. With NSA spying, celeb nude leaks, and growing awareness of the limitations of ipv6, the last few years have brought much public attention to over-the-top layered protocols and even alternative nets.
